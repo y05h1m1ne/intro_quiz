@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>イントロクイズ - ルール＆ツール</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",sans-serif;background:#0e0e10;color:#e8e6e3;min-height:100vh;padding:24px 16px;line-height:1.8}
+.w{max-width:600px;margin:0 auto}
+h1{font-size:22px;text-align:center;margin-bottom:8px}
+.sub{text-align:center;color:#7a7880;font-size:13px;margin-bottom:28px}
+.card{background:#1a1a1f;border:1px solid #2e2e36;border-radius:12px;padding:24px;margin-bottom:16px}
+h2{font-size:16px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #2e2e36}
+h3{font-size:14px;color:#e63946;margin:18px 0 10px}
+p{font-size:14px;color:#bbb;margin-bottom:12px}
+.flow{counter-reset:step}
+.flow-item{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.flow-item::before{counter-increment:step;content:counter(step);background:#e63946;color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
+.flow-text{font-size:13px;color:#bbb;line-height:1.7}
+.flow-text b{color:#e8e6e3}
+.highlight{background:#1e3a1e;color:#4ade80;font-size:13px;padding:12px;border-radius:8px;line-height:1.7;margin:12px 0}
+.quote{background:#24242b;border-left:3px solid #e63946;padding:10px 14px;border-radius:0 6px 6px 0;font-size:13px;color:#ddd;margin:12px 0;font-style:italic}
+.bm-link{display:inline-block;background:#e63946;color:#fff;padding:12px 28px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:700;cursor:grab;user-select:none;margin:8px 0}
+.bm-link:hover{background:#c62f3b}
+.bm-center{text-align:center;padding:10px 0}
+.cb{background:#24242b;border:1px solid #2e2e36;border-radius:6px;padding:12px;margin-top:10px;position:relative}
+.cb code{font-family:monospace;font-size:11px;color:#7a7880;word-break:break-all;display:block;overflow:auto}
+.cp{position:absolute;top:8px;right:8px;background:#2e2e36;color:#bbb;border:none;border-radius:4px;padding:4px 10px;font-size:11px;cursor:pointer}
+.cp:hover{background:#e63946;color:#fff}
+.warn{background:#3b1e1e;color:#f87171;font-size:12px;padding:10px;border-radius:6px;line-height:1.7;margin-top:10px}
+.ok-badge{background:#2a2;color:#fff;padding:1px 6px;border-radius:3px;font:bold 11px monospace}
+.tag{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;margin-right:4px}
+.tag-red{background:#e63946;color:#fff}
+.tag-blue{background:#2563eb;color:#fff}
+.tag-green{background:#16a34a;color:#fff}
+.emoji{font-size:18px;margin-right:4px;vertical-align:middle}
+.sz{font-family:monospace;font-size:12px;color:#4a4;margin-top:8px;text-align:right}
+.sep{border:none;border-top:1px solid #2e2e36;margin:20px 0}
+.shindan-link{display:block;text-align:center;background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;padding:14px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;margin:12px 0}
+.shindan-link:hover{opacity:.9}
+</style>
+</head>
+<body>
+<div class="w">
+
+<h1>🎵 イントロクイズ</h1>
+<p class="sub">ラジオDJになりきって、曲フリを決めろ！</p>
+
+<!-- ====== RULES ====== -->
+<div class="card">
+<h2>🎮 ゲームの概要</h2>
+<p>これは「診断メーカー」が生成する<b>ラジオのリクエストメッセージ</b>を使ったクイズです。</p>
+<p>回答者はラジオDJになりきってリクエスト文を読み上げながら、そのメッセージが何の曲に対するリクエストなのかを推理し、最後に「曲フリ」を決めます。タイミングぴったりでサビが始まったら大成功！</p>
+<p>必要なもの：<b>診断メーカー</b>のページと、下の<b>「YT音のみ再生」ツール</b>だけ。</p>
+<a class="shindan-link" href="https://shindanmaker.com/1260891" target="_blank">🔮 診断メーカーを開く</a>
+</div>
+
+<div class="card">
+<h2>📋 準備（出題者がやること）</h2>
+<div class="flow">
+<div class="flow-item"><div class="flow-text">診断メーカーで<b>任意の共有ナンバー</b>を入力して診断を実行します。</div></div>
+<div class="flow-item"><div class="flow-text">診断結果の<b>下のほうに表示される「歌手名」と「曲名」</b>を確認します。（これが答えです）</div></div>
+<div class="flow-item"><div class="flow-text">YouTube等でその曲を検索。<b>「YT音のみ再生」ツール</b>で読み込み、<b>サビの約30秒前まで再生位置を調整</b>して一時停止しておきます。</div></div>
+<div class="flow-item"><div class="flow-text">共有ナンバーを回答者に伝えます。</div></div>
+</div>
+<div class="warn">⚠ 回答者には「ページの下のほう（歌手名・曲名）は見ないでね」と伝えてください。</div>
+</div>
+
+<div class="card">
+<h2>🎤 ゲームの進行（回答者がやること）</h2>
+<div class="flow">
+<div class="flow-item"><div class="flow-text">回答者は診断結果の<b>「ラジオネーム」を声に出して読み上げます</b>。これが開始の合図です。</div></div>
+<div class="flow-item"><div class="flow-text">読み上げた直後、<b>出題者が曲を再生</b>します。（30秒カウントダウンが始まります）</div></div>
+<div class="flow-item"><div class="flow-text">曲が流れる中、回答者はDJになりきって<b>リクエストメッセージを約30秒かけて朗読</b>します。メッセージの内容から曲名・歌手名を推理してください。</div></div>
+<div class="flow-item"><div class="flow-text">朗読の最後に、<b>曲フリ</b>を決めます。</div></div>
+</div>
+<div class="quote">「○○さんの『○○』です、どうぞ！」</div>
+<div class="highlight">🎉 カウントダウンがゼロになるタイミングで曲フリが決まり、ピッタリサビが始まったら大成功！</div>
+</div>
+
+<hr class="sep">
+
+<!-- ====== TOOL GUIDE ====== -->
+<div class="card">
+<h2>🔧 「YT音のみ再生」ツールとは？</h2>
+<p>YouTubeの動画を<b>画面なし・音声だけ</b>で再生できるツールです。診断メーカーのページを開いたまま、その上に小さな音楽プレイヤーを表示します。</p>
+<p>ブックマークレットという仕組みで動きます。一度登録すれば、あとはワンタップで呼び出せます。</p>
+</div>
+
+<div class="card">
+<h2>📱 スマホ（Android Chrome）での登録方法</h2>
+<div class="flow">
+<div class="flow-item"><div class="flow-text">まず下の<b>「コピー」ボタン</b>をタップして、コードをコピーします。</div></div>
+<div class="flow-item"><div class="flow-text">Chromeで<b>適当なページ</b>を開いて、☆マークから<b>ブックマークに保存</b>します。</div></div>
+<div class="flow-item"><div class="flow-text">Chromeのブックマーク一覧を開き、今作ったブックマークを<b>長押し → 編集</b>。</div></div>
+<div class="flow-item"><div class="flow-text"><b>名前</b>を「<b>YT音のみ再生</b>」に変更。<b>URL欄を全消し</b>して、コピーしたコードを<b>貼り付けて保存</b>。</div></div>
+</div>
+
+<h3>📌 コピー用コード</h3>
+<div class="cb"><button class="cp" id="cpBtn">コピー</button><code id="codeTxt"></code></div>
+<div class="sz" id="szTxt"></div>
+</div>
+
+<div class="card">
+<h2>🖥️ PC（Chrome等）での登録方法</h2>
+<div class="flow">
+<div class="flow-item"><div class="flow-text">下の <b>🎵 YT音のみ再生</b> ボタンを、ブラウザの<b>ブックマークバーにドラッグ＆ドロップ</b>します。それだけで登録完了です。</div></div>
+</div>
+<div class="bm-center"><a class="bm-link" href="javascript:void(function(){var s=document.createElement('script');s.src='https://y05h1m1ne.github.io/intro_quiz/yt-audio-player.js?'+Date.now();document.body.appendChild(s)})()">🎵 YT音のみ再生</a></div>
+</div>
+
+<div class="card">
+<h2>🎧 ツールの使い方</h2>
+
+<h3>▶️ 起動する</h3>
+<p><span class="tag tag-blue">PC</span>ブックマークバーの<b>「YT音のみ再生」</b>をクリック。</p>
+<p><span class="tag tag-red">Android</span><b>アドレスバー</b>をタップして「<b>YT音のみ</b>」と入力。候補に表示されたブックマークをタップ。</p>
+<div class="warn">⚠ Androidではブックマーク一覧からのタップでは動作しません。必ずアドレスバーに入力して候補から選んでください。</div>
+
+<h3>🎶 曲を読み込む</h3>
+<p>画面右下にプレイヤーが表示されます。YouTubeのURLを貼り付けて<b>「読込」</b>ボタンをタップ。<span class="ok-badge">OK</span> になったら準備完了です。</p>
+
+<h3>🎤 再生・操作</h3>
+<p>
+<b>▶️</b> 再生 / 停止（押すとカウントダウンが始まります）<br>
+<b>⏪</b> 5秒戻る &nbsp; <b>◁</b> 1秒戻る &nbsp; <b>▷</b> 1秒進む &nbsp; <b>⏩</b> 5秒進む<br>
+<b>↻30</b> 30秒カウントダウンをリセット<br>
+<b>🔊</b> タップでミュート切替<br>
+<span style="color:#e63946">■</span>赤いバー → 再生位置（タップでシーク）<br>
+<span style="color:#6aa">■</span>水色のバー → 音量（タップで調整）
+</p>
+
+<h3>❍ 閉じる</h3>
+<p>プレイヤー右上の <b>✕</b> をタップ、またはブックマークをもう一度実行すると閉じます。</p>
+</div>
+
+</div>
+
+<script>
+(function(){
+var raw="javascript:void(function(){var s=document.createElement('script');s.src='https://y05h1m1ne.github.io/intro_quiz/yt-audio-player.js?'+Date.now();document.body.appendChild(s)})()";
+document.getElementById("codeTxt").textContent=raw;
+document.getElementById("szTxt").textContent=raw.length+" chars";
+document.getElementById("cpBtn").addEventListener("click",function(){
+navigator.clipboard.writeText(raw).then(function(){
+document.getElementById("cpBtn").textContent="\u30b3\u30d4\u30fc\u6e08";
+setTimeout(function(){document.getElementById("cpBtn").textContent="\u30b3\u30d4\u30fc"},1500)})})
+})();
+</script>
+</body>
+</html>
